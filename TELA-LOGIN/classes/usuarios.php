@@ -4,17 +4,17 @@ class Usuario
 {
 private $pdo;
 public $msgErro = ""; // está ok
-public function conectar($nome, $host, $usuario, $senha) ;
+public function conectar($nome, $host, $usuario, $senha)
 
 {
 
 global $pdo;
-try 
+try
 {
 $pdo = new PDO("mysql:dbname=" .$nome.";host=".$host,$usuario,$senha);
 
 } catch (PDOException $e){
-	$msgErro = $e->getMessage();  
+	$msgErro = $e->getMessage();
   }
 }
 	public function cadastrar($nome, $telefone, $email, $senha)
@@ -47,7 +47,7 @@ public function logar($email, $senha)
 
 global $pdo;
 
-   //Verificar se o e-mail e senha estão cadastrados, se sim, 
+   //Verificar se o e-mail e senha estão cadastrados, se sim,
 
     $sql = $pdo->prepare("SELECT cd_usuario FROM usuario WHERE email = :e AND senha = :s");
     $sql-> bindValue(":e",$email);
@@ -65,7 +65,7 @@ global $pdo;
     {
         return false; //não foi possível logar
     }
-  
+
 }
 }
 ?>
