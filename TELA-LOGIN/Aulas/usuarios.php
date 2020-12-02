@@ -4,7 +4,7 @@ class Usuario
 {
 private $pdo;
 public $msgErro = ""; // está ok
-public function conectar($nome, $host, $usuario, $senha) ;
+public function conectar($nome, $host, $usuario, $senha) 
 
 {
 
